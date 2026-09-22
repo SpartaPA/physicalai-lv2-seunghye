@@ -1,0 +1,33 @@
+=== HOSTNAME ===
+pa17
+=== OS ===
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+=== ARCH ===
+=== ARCH ===
+aarch64
+=== OPENCR PORT ===
+crw-rw---- 1 root dialout 166, 0 Sep 22 11:46 /dev/ttyACM0
+=== USB DEVICE ===
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0483:5740 STMicroelectronics Virtual COM Port
+Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+=== OPENCR INFO ===
+DEVNAME=/dev/ttyACM0
+ID_VENDOR=ROBOTIS
+ID_MODEL=OpenCR_Virtual_ComPort_in_FS_Mode
+ID_USB_DRIVER=cdc_acm
+=== PORT ACCESS ===
+Port access OK
