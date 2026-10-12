@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>realsense_tracker</name>
+  <version>0.1.0</version>
+  <description>Module 3 HSV mask and detection analysis using EYE4 vision code</description>
+  <maintainer email="ivory0130@gmail.com">Seunghye-J</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- perception (perception_node, detector) -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+
+
+  <!-- ROS 2 launch 및 RealSense 카메라 실행 의존성 -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>realsense2_camera</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

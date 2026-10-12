@@ -1,0 +1,21 @@
+# ROS 2 build files
+**/build/
+**/install/
+**/log/
+
+# Python cache
+__pycache__/
+*.pyc
+.venv/
+
+# Module 3 original rosbag
+lv2_module3/results/input/raw_reference/
+
+# Other rosbag files
+*.mcap
+*.db3
+*.bag
+
+# ROS 2 bag metadata
+rosbag2_*/
+lv2_module3/results/input/module3_raw_reference.zip

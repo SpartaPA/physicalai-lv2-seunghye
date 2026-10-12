@@ -1,0 +1,10 @@
+header:
+  stamp:
+    sec: 1791792131
+    nanosec: 862364258
+  frame_id: camera_color_optical_frame
+point:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+---

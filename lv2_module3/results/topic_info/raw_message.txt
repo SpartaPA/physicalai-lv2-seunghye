@@ -1,0 +1,15 @@
+A message was lost!!!
+	total count change:1
+	total count: 1---
+header:
+  stamp:
+    sec: 1791786760
+    nanosec: 864651367
+  frame_id: camera_color_optical_frame
+height: 480
+width: 640
+encoding: rgb8
+is_bigendian: 0
+step: 1920
+data: '<sequence type: uint8, length: 921600>'
+---

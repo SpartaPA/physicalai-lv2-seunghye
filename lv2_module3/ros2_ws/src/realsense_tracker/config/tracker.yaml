@@ -1,0 +1,41 @@
+# 모듈 3 개인 과제 — HSV 및 Contour 검출 설정
+# tracker.launch.py가 perception_node에 이 파일의 파라미터를 전달한다.
+# 실험 1: hsv_lower의 S 하한만 A/B 비교
+# 실험 2: min_area_ratio만 A/B 비교
+# 각 실험에서는 입력 영상과 나머지 설정값을 동일하게 유지한다.
+
+perception_node:
+  ros__parameters:
+    # 카메라 토픽 이름은 같은 폴더의 camera.yaml에서 읽음 (launch가 경로 지정, 직접 실행 시 -p camera_config:=<경로>)
+    camera_config: ""
+
+    # 목표 색 범위 — 파란색 물체 검출
+    # 실험 1에서는 hsv_lower의 두 번째 값(S 하한)만 변경한다.
+    # 나머지 HSV 값과 Contour 설정은 고정한다.
+    hsv_lower: [93, 120, 35]      # [H, S, V] 하한 (OpenCV: H 0~179, S/V 0~255)
+    hsv_upper: [130, 255, 255]    # [H, S, V] 상한
+    min_area_ratio: 0.10         # 화면 넓이 대비 최소 크기 (640x480에서 약 614px)
+    blur_ksize: 5                 # 가우시안 블러 크기 (홀수, 1이면 블러 안 함)
+    morph_ksize: 5                # 잡음 제거(열기/닫기) 크기 (1이면 안 함)
+
+    # 깊이 — 거리 측정·유효성 기록용. /target에는 넣지 않는다 (point.z = 면적비).
+    use_depth: false               # true면 aligned_depth_topic도 구독해 거리(dist_cm)·유효 측정 비율을 로그에 남김
+    depth_unit_m: 0.001           # 16UC1 깊이 값 1이 몇 m인지 (RealSense 기본 1mm)
+    depth_min_valid_ratio: 0.5    # 목표 영역에서 깊이가 측정된 비율이 이보다 낮으면 거리를 비움
+    depth_max_spread_cm: 5.0      # 목표 영역 깊이 값의 흩어짐(p25~p75)이 이보다 크면 거리를 비움
+    # 거리 제한 기능 (이번 과제에서는 비활성화)
+    # use_depth=true이고 유효한 Depth 영상이 전달된 경우에만 검사한다.
+    # 거리를 측정할 수 없거나 설정 범위 밖이면 x=y=z=0으로 미검출 처리한다.
+    # false여도 HSV·Contour 검출에 실패하면 x=y=z=0이 발행된다.
+    enforce_depth_range: false
+    depth_min_distance_cm: 13.0   # enforce_depth_range: true일 때만 사용 (반드시 소수점 표기)
+    depth_max_distance_cm: 100.0  # enforce_depth_range: true일 때만 사용 (반드시 소수점 표기)
+
+    publish_debug_image: true    # true면 /perception/debug_image 발행 (검출 결과를 그린 확인용 영상, 평가 도구에 필요)
+    stats_period_sec: 1.0         # 이 간격(초)마다 처리 FPS·처리 시간을 로그로 남김 (0이면 끔, /target 발행 주기와 무관)
+
+    # QoS (모두 depth 1)
+    target_reliable: false        # /target 발행: false = best effort (발제문 규약) → 구독 측(제어)도 best effort로 받아야 연결됨
+    image_reliable: true          # 영상 구독: true = reliable
+                                  # 실측(2026-10-06, wrapper 640x480 30fps): best effort 구독 → 컬러 1.2 fps·정렬 깊이 0 fps,
+                                  # reliable 구독 → 둘 다 29.4 fps (wrapper 발행 QoS: RELIABLE, KEEP_LAST 1)

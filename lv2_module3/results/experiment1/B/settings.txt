@@ -1,0 +1,6 @@
+Experiment: 1-B
+Input: raw_reference
+Variable: HSV S lower
+Integer values are: [93, 160, 35]
+Integer values are: [130, 255, 255]
+Double value is: 0.002

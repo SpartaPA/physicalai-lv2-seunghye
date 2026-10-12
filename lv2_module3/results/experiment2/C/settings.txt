@@ -1,0 +1,6 @@
+Experiment: 2-C
+Input: raw_reference
+Variable: min_area_ratio
+Integer values are: [93, 120, 35]
+Integer values are: [130, 255, 255]
+Double value is: 0.1

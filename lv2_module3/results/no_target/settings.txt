@@ -1,0 +1,4 @@
+Condition: no blue puck in camera view
+Integer values are: [93, 120, 35]
+Integer values are: [130, 255, 255]
+Double value is: 0.005
